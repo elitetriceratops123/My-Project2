@@ -70,13 +70,13 @@ if (isset($_POST['send'])) {
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com'; // Set the SMTP server to send through
             $mail->SMTPAuth = true;
-            $mail->Username = 'echonest01@gmail.com'; // SMTP username
-            $mail->Password = 'ljnt wcsz tuer wgxu'; // SMTP password
+            $mail->Username = 'email'; // SMTP username
+            $mail->Password = 'app password'; // SMTP password
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             //Recipients
-            $mail->setFrom('echonest01@gmail.com', 'Echonest');
+            $mail->setFrom('from', 'Echonest');
             $mail->addAddress($email, $fname . ' ' . $lname);
 
             //Content
