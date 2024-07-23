@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Form</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <style>
+        .container {
+            max-width: 500px;
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+
+        .d {
+            display: none;
+        }
+
+        body {
+            background-color: antiquewhite;
+        }
+    </style>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+
+<body>
+    <header id="header" class="text-black bg-white">
+        <nav id="header-nav" class="navbar navbar-expand-md px-3 mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/svgviewer-png-output.png" class="img-fluid" height="55px" width="190px">
+                </a>
+                <button class="navbar-toggler d-flex d-md-none order-3 p-2 border-0 shadow-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar"
+                    aria-labelledby="bdNavbarOffcanvasLabel">
+                    <div class="offcanvas-header px-4 pb-0">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/svgviewer-png-output.png" class="img-fluid">
+                        </a>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                            aria-label="Close" data-bs-target="#bdNavbar"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end fs-5 flex-grow-1 gap-5 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="index.html#intro">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="index.html#overview">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="index.html#testimonials">Reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="index.html#faqs">FAQs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="index.html#subscribe">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container border rounded">
+            <form id="orderForm" action="order.php" method="post" enctype="multipart/form-data">
+                <h1 class="text-capitalize"><strong>Order Now:</strong></h1>
+                <div class="row my-3">
+                    <div class="col-6">
+                        <input type="text" name="fname" id="fname" placeholder="Enter first name" class="form-control"
+                            required>
+                    </div>
+                    <div class="col-6">
+                        <input type="text" name="lname" placeholder="Enter last name" class="form-control" required>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <input type="email" name="email" placeholder="Enter email address" class="form-control"
+                            required>
+                    </div>
+                </div>
+                <div class="row my-3">
+                    <div class="col">
+                        <input type="tel" name="phone" placeholder="Enter Phone no." class="form-control" required>
+                    </div>
+                </div>
+                <h3>Specifications:</h3>
+                <div class="row my-3">
+                    <div class="col-6 ms-auto">
+                        <h4>Color:</h4>
+                    </div>
+                    <div class="col-6 mb-3 d-flex justify-content-center ">
+                        <select class="form-select" name="color" id="" required>
+                            <option>Select color:</option>
+                            <option value="c-red">Crimson Red</option>
+                            <option value="d-red">Light Red</option>
+                            <option value="blue">Light Blue</option>
+                            <option value="pink">Light Pink</option>
+                        </select>
+                    </div>
+                    <div class="col-6 ms-auto">
+                        <h4>Quantity:</h4>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <input type="number" name="quan" class=" form-control " name="quantity" max="10" min="1"
+                            required>
+                    </div>
+                </div>
+                <h3>Address:</h3>
+                <div class="row my-3">
+                    <div class="col-6 mb-3">
+                        <input type="tel" name="con" placeholder="Country" class="form-control" required>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <input type="tel" name="prov" placeholder="State/Province" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <input type="tel" name="city" placeholder="City" class="form-control" required>
+                    </div>
+                    <div class="col-6">
+                        <input type="tel" name="zip" placeholder="Zip-code" class="form-control" required>
+                    </div>
+                </div>
+                <h3>Verify:</h3>
+                <div class="row">
+                    <div class="col">
+                        <div class="g-recaptcha" data-sitekey="6Ld4cvUpAAAAAGPh8xi_yqHKQkheiMcIcUruIfFU"></div>
+                    </div>
+                </div>
+                <h3>Payment Methods:</h3>
+                <div class="row">
+                    <div class="col-1">
+                        <input type="radio" name="pmeth" id="rad1" value="COD" onclick="disp(1)">
+                    </div>
+                    <div class="col">
+                        <p>Cash On Delivery</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1">
+                        <input type="radio" name="pmeth" id="rad2" value="card" onclick="disp(2)">
+                    </div>
+                    <div class="col">
+                        <p>Credit/Debit card</p>
+                    </div>
+                </div>
+                <div class="row my-3 d" id="d1">
+                    <div class="col-12 mb-3">
+                        <input type="text" name="fulladdress" placeholder="Full Home Address" id="fha"
+                            class="form-control">
+                    </div>
+                </div>
+                <div class="row my-3 d" id="d2">
+                    <div class="col-12 mb-3">
+                        <input type="tel" id="no" name="cno" placeholder="Card Number" class="form-control">
+                    </div>
+                    <div class="col-12 mb-3">
+                        <input type="text" id="na" name="cname" placeholder="Card Holder's Name" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <input type="date" id="ce" name="cexp" placeholder="Expiration date" class="form-control">
+                    </div>
+                    <div class="col-6">
+                        <input type="number" id="cv" name="cvv" placeholder="Cvv" class="form-control">
+                    </div>
+                </div>
+                <div class="row my-3 d" id="d3">
+                    <div class="col-4 mb-3">
+                        <input type="button" name="send" value="Place Order" class="btn btn-primary" onclick="submitForm()">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            function disp(n) {
+                if (n == 1) {
+                    document.getElementById('d1').classList.remove('d');
+                    document.getElementById('d2').classList.add('d');
+                    document.getElementById('d3').classList.remove('d');
+                    document.getElementById('fha').required = true;
+                    document.getElementById('no').required = false;
+                    document.getElementById('na').required = false;
+                    document.getElementById('ce').required = false;
+                    document.getElementById('cv').required = false;
+                } else {
+                    document.getElementById('d2').classList.remove('d');
+                    document.getElementById('d1').classList.add('d');
+                    document.getElementById('d3').classList.remove('d');
+                    document.getElementById('fha').required = false;
+                    document.getElementById('no').required = true;
+                    document.getElementById('na').required = true;
+                    document.getElementById('ce').required = true;
+                    document.getElementById('cv').required = true;
+                }
+            }
+
+            function submitForm() {
+                const form = document.getElementById('orderForm');
+                const captchaResponse = grecaptcha.getResponse();
+
+                if (!captchaResponse) {
+                    alert("Please complete reCAPTCHA");
+                } else {
+                    form.submit();
+                }
+            }
+        </script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,35 @@
+contact table
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    fname VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    phone VARCHAR(20),
+    subj VARCHAR(100) NOT NULL,
+    msg TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+
+
+order table
+CREATE TABLE `order_table` (
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `order_id` VARCHAR(10) UNIQUE NOT NULL,
+    `first_name` VARCHAR(50) NOT NULL,
+    `last_name` VARCHAR(50) NOT NULL,
+    `email` VARCHAR(100) NOT NULL,
+    `phone` VARCHAR(20) NOT NULL,
+    `color` VARCHAR(20) NOT NULL,
+    `quantity` INT NOT NULL,
+    `country` VARCHAR(50) NOT NULL,
+    `province` VARCHAR(50) NOT NULL,
+    `city` VARCHAR(50) NOT NULL,
+    `zip` VARCHAR(10) NOT NULL,
+    `payment_method` VARCHAR(10) NOT NULL,
+    `full_address` TEXT,
+    `card_number` VARCHAR(20),
+    `card_name` VARCHAR(50),
+    `card_expiry` VARCHAR(8),
+    `card_cvv` VARCHAR(4),
+    `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

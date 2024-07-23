@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>EchoNest</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol xmlns="http://www.w3.org/2000/svg" id="star-fill" viewBox="0 0 16 16">
+            <path
+                d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z">
+            </path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="star-empty" viewBox="0 0 16 16">
+            <path
+                d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288L8 2.223l1.847 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.565.565 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z">
+            </path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="balloon" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5">
+                <path
+                    d="M8 16.607c1.15.86 2.518 1.38 4 1.393c4.142.034 7.594-3.92 7.56-8.196C19.527 5.53 16.142 2.034 12 2c-4.142-.034-7.473 3.404-7.44 7.68A8.88 8.88 0 0 0 5.244 13">
+                </path>
+                <path
+                    d="M15.5 9a3.035 3.035 0 0 0-3-3M12 20.35c.321 0 .482 0 .593-.022c.654-.128 1.051-.772.858-1.39c-.033-.105-.109-.242-.261-.515M12 20.35c-.321 0-.482 0-.593-.022c-.654-.128-1.051-.772-.858-1.39c.033-.105.109-.242.261-.515M12 20.35v2.15">
+                </path>
+            </g>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="bag-heart" viewBox="0 0 24 24">
+            <g fill="none">
+                <path fill="currentColor"
+                    d="m12 12.191l-.519.542a.75.75 0 0 0 1.038 0L12 12.191Zm-.957 3.675l-.444.604l.444-.604Zm1.914 0l-.444-.605l.444.605Zm-.957.462v.75v-.75Zm-.514-1.067c-.417-.307-.878-.69-1.227-1.093c-.368-.426-.509-.757-.509-.971h-1.5c0 .77.441 1.45.875 1.952c.453.525 1.014.984 1.474 1.321l.887-1.21ZM9.75 13.197c0-.576.263-.827.492-.907c.25-.088.714-.06 1.24.443l1.037-1.083c-.825-.79-1.861-1.096-2.773-.776c-.934.327-1.496 1.226-1.496 2.323h1.5Zm3.65 3.273c.46-.337 1.022-.796 1.475-1.32c.434-.502.875-1.183.875-1.953h-1.5c0 .214-.141.545-.51.971c-.348.403-.809.786-1.226 1.093l.887 1.21Zm2.35-3.273c0-1.097-.563-1.996-1.496-2.323c-.912-.32-1.948-.014-2.773.776l1.038 1.083c.525-.503.989-.531 1.24-.443c.228.08.491.33.491.907h1.5ZM10.6 16.47c.368.27.782.608 1.4.608v-1.5c-.024 0-.04 0-.094-.03a4 4 0 0 1-.42-.287l-.887 1.21Zm1.914-1.21a4 4 0 0 1-.42.289c-.054.029-.07.029-.094.029v1.5c.618 0 1.032-.337 1.4-.608l-.886-1.21Z">
+                </path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                    d="M9 6V5a3 3 0 1 1 6 0v1m5.224 6.526c-.586-3.121-.878-4.682-1.99-5.604C17.125 6 15.537 6 12.36 6h-.72c-3.176 0-4.764 0-5.875.922c-1.11.922-1.403 2.483-1.989 5.604c-.823 4.389-1.234 6.583-.034 8.029C4.942 22 7.174 22 11.639 22h.722c4.465 0 6.698 0 7.897-1.445c.696-.84.85-1.93.696-3.555">
+                </path>
+            </g>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="handiplast" viewBox="0 0 24 24">
+            <g fill="none">
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                    d="M13.5 7.642L9.071 3.213a4.142 4.142 0 0 0-5.858 5.858L14.93 20.787a4.142 4.142 0 0 0 5.858-5.858l-4.358-4.358">
+                </path>
+                <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5"
+                    d="m12 17.858l-2.929 2.929A4.142 4.142 0 0 1 2.596 20m3.546-8l-2.929 2.929c-.322.322-.58.685-.774 1.071M12 6.142l2.929-2.929a4.142 4.142 0 1 1 5.858 5.858L17.857 12">
+                </path>
+                <path fill="currentColor"
+                    d="M15.841 12.871a.788.788 0 1 1-1.114 1.114a.788.788 0 0 1 1.114-1.114Zm-3.712-3.712a.787.787 0 1 0-1.114 1.114a.787.787 0 0 0 1.114-1.114Zm4.641 6.497a.787.787 0 1 1-1.114 1.114a.787.787 0 0 1 1.114-1.114ZM9.345 8.23A.788.788 0 1 0 8.23 9.346A.788.788 0 0 0 9.345 8.23Zm3.712 3.713a.787.787 0 1 1-1.113 1.114a.787.787 0 0 1 1.113-1.114Zm.928 2.785a.788.788 0 1 1-1.114 1.113a.788.788 0 0 1 1.114-1.113Zm-3.712-3.713a.787.787 0 1 0-1.114 1.114a.787.787 0 0 0 1.114-1.114Z">
+                </path>
+            </g>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="facebook" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M14 13.5h2.5l1-4H14v-2c0-1.03 0-2 2-2h1.5V2.14c-.326-.043-1.557-.14-2.857-.14C11.928 2 10 3.657 10 6.7v2.8H7v4h3V22h4v-8.5Z">
+            </path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="twitter" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23Z">
+            </path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="instagram" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z">
+            </path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="linkedin" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M6.94 5a2 2 0 1 1-4-.002a2 2 0 0 1 4 .002ZM7 8.48H3V21h4V8.48Zm6.32 0H9.34V21h3.94v-6.57c0-3.66 4.77-4 4.77 0V21H22v-7.93c0-6.17-7.06-5.94-8.72-2.91l.04-1.68Z">
+            </path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" id="youtube" viewBox="0 0 24 24">
+            <path fill="currentColor"
+                d="M12.244 4c.534.003 1.87.016 3.29.073l.504.022c1.429.067 2.857.183 3.566.38c.945.266 1.687 1.04 1.938 2.022c.4 1.56.45 4.602.456 5.339l.001.152v.174c-.007.737-.057 3.78-.457 5.339c-.254.985-.997 1.76-1.938 2.022c-.709.197-2.137.313-3.566.38l-.504.023c-1.42.056-2.756.07-3.29.072l-.235.001h-.255c-1.13-.007-5.856-.058-7.36-.476c-.944-.266-1.687-1.04-1.938-2.022c-.4-1.56-.45-4.602-.456-5.339v-.326c.006-.737.056-3.78.456-5.339c.254-.985.997-1.76 1.939-2.021c1.503-.419 6.23-.47 7.36-.476h.489ZM9.999 8.5v7l6-3.5l-6-3.5Z">
+            </path>
+        </symbol>
+    </svg>
+    <header id="header" class="text-black bg-white">
+        <nav id="header-nav" class="navbar navbar-expand-md px-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html">
+                    <img src="images/svgviewer-png-output.png" class="img-fluid" height="55px" width="190px">
+                </a>
+                <button class="navbar-toggler d-flex d-md-none order-3 p-2 border-0 shadow-none" type="button"
+                    data-bs-toggle="offcanvas" data-bs-target="#bdNavbar" aria-controls="bdNavbar" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="offcanvas offcanvas-end" tabindex="-1" id="bdNavbar"
+                    aria-labelledby="bdNavbarOffcanvasLabel">
+                    <div class="offcanvas-header px-4 pb-0">
+                        <a class="navbar-brand" href="index.html">
+                            <img src="images/svgviewer-png-output.png" class="img-fluid">
+                        </a>
+                        <button type="button" class="btn-close btn-close-black" data-bs-dismiss="offcanvas"
+                            aria-label="Close" data-bs-target="#bdNavbar"></button>
+                    </div>
+                    <div class="offcanvas-body">
+                        <ul class="navbar-nav justify-content-end fs-5 flex-grow-1 gap-5 pe-3">
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="#intro">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="#overview">Overview</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="#testimonials">Reviews</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="#faqs">FAQs</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link p-0" href="#contact">Contact Us</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section id="intro">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <div class="banner-image d-flex justify-content-center">
+                        <img src="images/bnr.jpg" alt="banner" class="img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <div class="p-3 text-center">
+                        <h1 class="display-1 ">Minimalist Headphones</h1>
+                        <p class="fs-5 mt-3">Discover the superior sound quality of these state-of-the-art headphones,
+                            crafted to immerse you in rich audio experiences, all for just <strong>Rs.2,500/-</strong>
+                        </p>
+                        <a href="check_out.html"
+                            class="btn btn-lg btn-outline-dark btn-bg-dark text-uppercase mt-3">Order
+                            Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="overview">
+        <div class="container-lg my-5 border-5 border-top p-3">
+            <div class="row align-items-center py-lg-9 justify-content-between">
+                <div class="col-lg-3">
+                    <div class="featured-item mb-5 text-center">
+                        <h3 class="fs-3 fw-medium mb-1">Wireless Connectivity</h3>
+                        <p>Seamlessly connect to your devices Bluetooth for a tangle-free listening experience.</p>
+                    </div>
+                    <div class="featured-item mb-5 text-center">
+                        <h3 class="fs-3 fw-medium mb-1">Long Battery Life</h3>
+                        <p>Enjoy hours of uninterrupted music with the long-lasting battery of EchoNest headphones.</p>
+                    </div>
+                    <div class="featured-item mb-5 text-center">
+                        <h3 class="fs-3 fw-medium mb-1">Sleek Design</h3>
+                        <p>Show off the stylish and sleek design of the headphones, available in various colors.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="image-holder text-center">
+                        <img src="images/single-image1.jpg" alt="headphone" class="rounded-5 img-fluid">
+                    </div>
+                </div>
+                <div class="col-lg-3">
+                    <div class="featured-item mb-5 text-center">
+                        <h3 class="fs-3 fw-medium mb-1">Superior Sound Quality</h3>
+                        <p>Enjoy rich, immersive sound with high-fidelity audio technology from EchoNest.</p>
+                    </div>
+                    <div class="featured-item mb-5 text-center">
+                        <h3 class="fs-3 fw-medium mb-1">Noise Isolation</h3>
+                        <p>Block out external distractions immerse you in your music and yourself in your music.</p>
+                    </div>
+                    <div class="featured-item mb-5 text-center">
+                        <h3 class="fs-3 fw-medium mb-1">Comfortable Fit</h3>
+                        <p>Designed with plush ear cushions and an adjustable headband for listening sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="icon-box text-center">
+                        <div class="icon-box-icon mb-3">
+                            <svg class="balloon svg-primary" width="39" height="39">
+                                <use xlink:href="#balloon"></use>
+                            </svg>
+                        </div>
+                        <div class="icon-box-content ps-3">
+                            <h4 class="fs-3 fw-600 text-capitalize">100% high quality product</h4>
+                            <p>We have option of pick up in store</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4 border-start border-end">
+                    <div class="icon-box text-center">
+                        <div class="icon-box-icon mb-3">
+                            <svg class="bag-heart svg-primary" width="39" height="39">
+                                <use xlink:href="#bag-heart"></use>
+                            </svg>
+                        </div>
+                        <div class="icon-box-content ps-3">
+                            <h4 class="fs-3 fw-600 text-capitalize">Free shipping charge</h4>
+                            <p>Inside City delivery within 5 days</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                    <div class="icon-box text-center">
+                        <div class="icon-box-icon mb-3">
+                            <svg class="handiplast svg-primary" width="39" height="39">
+                                <use xlink:href="#handiplast"></use>
+                            </svg>
+                        </div>
+                        <div class="icon-box-content ps-3">
+                            <h4 class="fs-3 fw-600 text-capitalize">Money back guarantee</h4>
+                            <p>We will take return in some cases</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="testimonials">
+        <div class="container-lg border-5 border-top ">
+            <div class="section-header mt-0 text-center mb-5">
+                <h2 class="display-4 fw-600">Our Customer’s Reviews</h2>
+            </div>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6 col-sm-12">
+                        <div class="review-item text-center p-5">
+                            <blockquote class="fs-5">"I'm blown away by the sound quality of my EchoNest headphones.
+                                The clarity and depth of the audio are unparalleled. Whether I'm listening to my
+                                favorite songs or immersing myself in a movie, these headphones deliver an
+                                incredible audio experience. I can't recommend them enough!"</blockquote>
+                            <div class="mt-4">
+                                <div class="d-flex justify-content-center">
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                </div>
+                                <div class="fw-600 mt-3">David William - Feb 22, 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-sm-12">
+                        <div class="text-center p-5">
+                            <blockquote class="fs-5">"Comfort and style are equally important to me, and EchoNest
+                                headphones deliver on both fronts. The cushioned ear cups and adjustable headband
+                                make them incredibly comfortable to wear, even for long periods. Plus, they look
+                                sleek and modern. I'm impressed by the perfect blend of comfort and aesthetics."
+                            </blockquote>
+                            <div class="mt-4">
+                                <div class="rating d-flex justify-content-center">
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                    <svg class="star-fill svg-yellow" width="15" height="15">
+                                        <use xlink:href="#star-fill"></use>
+                                    </svg>
+                                </div>
+                                <div class="fw-600 mt-3">Emma Turner - April 5, 2023</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="faqs">
+        <div class="container-lg border-5 border-top ">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-12 mt-5 ">
+                    <div class="image-holder mb-5 d-flex justify-content-center">
+                        <img src="images/single-image2.jpg" alt="faqs" height="400px" class="img-fluid rounded-5">
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 aos-init">
+                    <h2 class="display-4 fw-600 mt-0">FAQs Section</h2>
+                    <div class="accordion" id="accordionExample">
+                        <div class="accordion-item back p-3">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button fs-3 fw-medium bg-transparent px-0" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false"
+                                    aria-controls="collapseOne"> Are EchoNest headphones compatible with my devices?
+                                </button>
+                            </h2>
+                            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body"> Absolutely! EchoNest headphones are equipped with a
+                                    built-in
+                                    microphone,
+                                    allowing you to make and receive calls conveniently. Whether you're using them with
+                                    your smartphone or
+                                    other compatible devices, the microphone ensures clear and crisp audio for your
+                                    phone conversations.
+                                    Stay connected while enjoying the superior headphones. </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item back p-3">
+                            <h2 class="accordion-header" id="headingTwo">
+                                <button class="accordion-button fs-3 fw-medium bg-transparent px-0 collapsed"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                    aria-expanded="false" aria-controls="collapseTwo"> How long does the battery of
+                                    EchoNest headphones last? </button>
+                            </h2>
+                            <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body"> Absolutely! EchoNest headphones are equipped with a
+                                    built-in
+                                    microphone,
+                                    allowing you to make and receive calls conveniently. Whether you're using them with
+                                    your smartphone or
+                                    other compatible devices, the microphone ensures clear and crisp audio for your
+                                    phone conversations.
+                                    Stay connected while enjoying the superior headphones. </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item back p-3">
+                            <h2 class="accordion-header" id="headingThree">
+                                <button class="accordion-button fs-3 fw-medium bg-transparent px-0 collapsed"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree"
+                                    aria-expanded="false" aria-controls="collapseThree"> Do EchoNest headphones come
+                                    with a
+                                    warranty? </button>
+                            </h2>
+                            <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body"> Absolutely! EchoNest headphones are equipped with a
+                                    built-in
+                                    microphone,
+                                    allowing you to make and receive calls conveniently. Whether you're using them with
+                                    your smartphone or
+                                    other compatible devices, the microphone ensures clear and crisp audio for your
+                                    phone conversations.
+                                    Stay connected while enjoying the superior headphones. </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item back p-3">
+                            <h2 class="accordion-header" id="headingFour">
+                                <button class="accordion-button fs-3 fw-medium bg-transparent px-0 collapsed"
+                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                    aria-expanded="false" aria-controls="collapseFour"> Can I use EchoNest headphones
+                                    for
+                                    making calls? </button>
+                            </h2>
+                            <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body"> Absolutely! EchoNest headphones are equipped with a
+                                    built-in
+                                    microphone,
+                                    allowing you to make and receive calls conveniently. Whether you're using them with
+                                    your smartphone or
+                                    other compatible devices, the microphone ensures clear and crisp audio for your
+                                    phone conversations.
+                                    Stay connected while enjoying the superior headphones.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container border-5 border-top ">
+            <div class="section-header mt-0 text-center mb-5">
+                <h2 class="display-4 fw-600">Contact Us</h2>
+            </div>
+            <div class="container-fluid">
+                <div class="row gap-3 gap-lg-5 gap-md-3 gap-sm-3 mb-5 d-flex justify-content-center align-items-center">
+                    <div
+                        class="col-8 col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 rounded-3 text-center border border-2">
+                        <i class="ic rounded-circle fas fa-map-marker-alt"></i>
+                        <h3>Location</h3>
+                        <p>
+                            <a style="color: black; text-decoration: underline;"
+                                href="https://maps.app.goo.gl/vdpcKXvJa9wZfcGeA?g_st=ic">
+                                OFFICE LOCATION
+                            </a>
+                        </p>
+                    </div>
+                    <div
+                        class="col-8 col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 rounded-3 text-center border border-2">
+                        <i class="ic rounded-circle fas fa-envelope"></i>
+                        <h3>E-mail</h3>
+                        <p>echo_nest@gmail.com</p>
+                    </div>
+                    <div
+                        class="col-8 col-xxl-3 col-xl-3 col-lg-3 col-md-4 col-sm-4 rounded-3 text-center border border-2">
+                        <i class="ic rounded-circle fas fa-phone"></i>
+                        <h3>Phone no.</h3>
+                        <p>0333-5572297</p>
+                    </div>
+                </div>
+            </div>
+            <div class="container-md">
+                <div class="row">
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12 d-flex align-items-center justify-content-center">
+                        <img src="images/contact.gif" alt="" class="img-fluid rounded-5">
+                    </div>
+                    <div class="col-lg-6 col-xl-6 col-md-6 col-sm-12">
+                        <form action="contact.php" method="post" enctype="multipart/form-data">
+                            <div class="container-lg border border-2">
+
+                                <h3>Get in touch</h3>
+
+                                <div class="row m-3 gap-1">
+                                    <input type="text" name="fname" class="col rounded form-control"
+                                        placeholder="Your name (required)" required>
+                                    <input type="email" name="email" class="col rounded form-control"
+                                        placeholder="Your email (required)" required>
+                                </div>
+                                <div class="row m-3 gap-1">
+                                    <input type="phone" name="phone" class="col rounded form-control"
+                                        placeholder="Your number (optional)">
+                                    <input type="text" name="subj" class="col rounded form-control"
+                                        placeholder="Your subject (required)" required>
+                                </div>
+                                <div class="row m-3">
+                                    <textarea name="msg" placeholder="Your message (required)"
+                                        class="col rounded form-control" cols="30" rows="10" required></textarea>
+                                </div>
+                                <div class="row m-3">
+                                    <input type="submit" name="send" value="send message"
+                                        class="col-12 col-xxl-6 col-xl-6 col-lg-6 col-md-6 col-sm-6 btn btn-outline-dark btn-bg-dark text-uppercase mt-3">
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex align-items-center justify-content-center my-5">
+            <div class="row g-5">
+                <div class="col-12 social-links">
+                    <ul class=" d-flex flex-wrap justify-content-center gap-1 list-unstyled">
+                        <li>
+                            <a href="#" class=" border rounded-pill p-2 ">
+                                <svg width="25" height="25" viewBox="0 0 24 24" class="svg-secondary">
+                                    <use xlink:href="#facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class=" border rounded-pill p-2 ">
+                                <svg width="25" height="25" viewBox="0 0 24 24" class="svg-secondary">
+                                    <use xlink:href="#twitter"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class=" border rounded-pill p-2 ">
+                                <svg width="25" height="25" viewBox="0 0 24 24" class="svg-secondary">
+                                    <use xlink:href="#youtube"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class=" border rounded-pill p-2 ">
+                                <svg width="25" height="25" viewBox="0 0 24 24" class="svg-secondary">
+                                    <use xlink:href="#linkedin"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class=" border rounded-pill p-2 ">
+                                <svg width="25" height="25" viewBox="0 0 24 24" class="svg-secondary">
+                                    <use xlink:href="#instagram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="container-fluid bg-dark text-light">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-8 p-1 d-flex justify-content-center align-items-center">
+                    <h4>&COPY; 2024 EchoNest</h4>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

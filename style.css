@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body {
+    background-color: antiquewhite;
+}
+
+/* - Display Header
+------------------------------------------------------------- */
+@media (min-width: 1200px) {
+    .display-1 {
+        font-size: calc(1.625rem + 4vw);
+        line-height: 0.9;
+    }
+}
+
+/* - Font Weight
+------------------------------------------------------------- */
+.fw-600 {
+    font-weight: 600;
+}
+
+/* - Svg Color
+------------------------------------------------------------- */
+.svg-primary {
+    fill: #FDACA5;
+    color: #FDACA5;
+}
+
+.svg-secondary {
+    fill: var(--bs-secondary);
+    color: var(--bs-secondary);
+}
+
+.svg-yellow {
+    fill: var(--bs-yellow);
+    color: var(--bs-yellow);
+}
+
+/* - FAQs
+------------------------------------------------------------- */
+#faqs .accordion-button.collapsed::after {
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 2rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    transform: rotate(0deg);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='plus' viewBox='0 0 16 16'%3E%3Cpath d='M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z'/%3E%3C/svg%3E");
+}
+
+#faqs .accordion-button:not(.collapsed)::after {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' class='minus' viewBox='0 0 16 16'%3E%3Cpath d='M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z'/%3E%3C/svg%3E");
+}
+
+#faqs .accordion-button:focus {
+    border-color: var(--bs-light);
+    box-shadow: var(--bs-light);
+}
+
+#faqs .accordion-button:not(.collapsed) {
+    color: var(--bs-dark);
+}
+
+/* - Contact
+------------------------------------------------------------- */
+#form svg.send {
+    right: 0;
+    bottom: 50px;
+}
+
+.social-links a {
+    border: 1px solid var(--bs-border-secondary-color);
+}
+
+.social-links a:hover {
+    background-color: #FDACA5;
+}
+
+.social-links a:hover svg {
+    color: var(--bs-light);
+}
+
+.ic {
+    font-size: 2rem;
+    margin: 2px;
+    padding: 10px;
+    color: white;
+    height: 50px;
+    width: 50px;
+    background: #FDACA5;
+}
+
+.gifimage {
+    height: 400px;
+}
+
+@media screen and (max-width: 500px) {
+    .gifimage {
+        height: 300px;
+    }
+}
+#intro,#overview,#testimonials,#faqs{
+    margin-bottom: 150px;
+}
+.back{
+    background-color: transparent;
+}
